@@ -39,4 +39,34 @@ public class AccountController {
         return accountService.save(account);
     }
 
+    /**
+     * 修改
+     * @param account
+     * @return
+     */
+    @PutMapping
+    public ResponseEntity update(@RequestBody Account account) {
+        return accountService.update(account);
+    }
+
+    /**
+     * 删除
+     * @param id
+     * @return
+     */
+    @DeleteMapping("/{id}")
+    public ResponseEntity delete(@PathVariable Long id) {
+        return accountService.delete(id);
+    }
+
+    /**
+     * 根据id查询
+     *
+     * @param id
+     * @return
+     */
+    @GetMapping("/{id}")
+    public ResponseEntity<Account> findById(@PathVariable Long id) {
+        return accountService.findById(id);
+    }
 }

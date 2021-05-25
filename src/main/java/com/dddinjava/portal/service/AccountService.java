@@ -23,4 +23,25 @@ public interface AccountService {
      * @return ResponseEntity
      */
     ResponseEntity save(Account account);
+
+    /**
+     * 修改
+     * @param account
+     * @return
+     */
+    ResponseEntity update(Account account);
+
+    /**
+     * 根据id 删除
+     * @param id
+     * @return
+     */
+    ResponseEntity delete(Long id);
+
+    /**
+     * 根据id查询
+     * @param id
+     * @return
+     */
+    ResponseEntity findById(Long id);
 }
