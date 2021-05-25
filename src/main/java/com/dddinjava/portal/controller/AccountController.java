@@ -5,9 +5,7 @@ import com.dddinjava.portal.service.AccountService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -29,6 +27,16 @@ public class AccountController {
     @GetMapping
     public ResponseEntity<List<Account>> list() {
         return accountService.list();
+    }
+
+    /**
+     * 保存
+     * @param account
+     * @return
+     */
+    @PostMapping
+    public ResponseEntity save(@RequestBody Account account) {
+        return accountService.save(account);
     }
 
 }

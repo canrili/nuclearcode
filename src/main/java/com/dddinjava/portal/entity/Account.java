@@ -12,11 +12,13 @@ import java.io.Serializable;
 @Getter
 @Setter
 @ToString
+@NoArgsConstructor
 @RequiredArgsConstructor
 public class Account implements Serializable {
 
   private static final long serialVersionUID = -4605836191379150771L;
-  private long id;
+
+  private Long id;
 
   @NonNull
   private String username;

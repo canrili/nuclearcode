@@ -30,4 +30,16 @@ public class AccountServiceImpl implements AccountService {
         List<Account> list = accountMapper.list();
         return ResponseEntity.status(HttpStatus.OK).body(list);
     }
+
+    /**
+     * 保存
+     *
+     * @param account
+     * @return ResponseEntity
+     */
+    @Override
+    public ResponseEntity save(Account account) {
+        int count = accountMapper.save(account);
+        return ResponseEntity.status(count > 0 ? HttpStatus.CREATED: HttpStatus.ACCEPTED).build();
+    }
 }

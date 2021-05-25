@@ -13,7 +13,14 @@ public interface AccountService {
 
     /**
      * 查询所有帐户
-     * @return
+     * @return ResponseEntity
      */
     ResponseEntity<List<Account>> list();
+
+    /**
+     * 保存
+     * @param account
+     * @return ResponseEntity
+     */
+    ResponseEntity save(Account account);
 }
