@@ -20,7 +20,8 @@ class AccountMapperTest {
     @DisplayName("保存")
     void save() {
         Account account = new Account("dddinjava", "123", "dddinjava");
-        Long count = accountMapper.save(account);
+        Integer count = accountMapper.save(account);
+        System.out.println(count);
         assertEquals(1, count);
     }
 

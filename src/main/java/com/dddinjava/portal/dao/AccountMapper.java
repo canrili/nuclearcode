@@ -16,7 +16,7 @@ public interface AccountMapper {
      * @param account 帐户
      * @return 条数
      */
-    Long save(Account account);
+    Integer save(Account account);
 
     /**
      * 查询所有帐户
