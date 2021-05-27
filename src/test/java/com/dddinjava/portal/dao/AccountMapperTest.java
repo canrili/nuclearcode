@@ -1,6 +1,7 @@
 package com.dddinjava.portal.dao;
 
 import com.dddinjava.portal.entity.Account;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@Slf4j
 @SpringBootTest
 class AccountMapperTest {
 
@@ -28,6 +30,7 @@ class AccountMapperTest {
     @DisplayName("查询所有")
     void list() {
         List<Account> list = accountMapper.list();
+        log.info(list.toString());
         assertEquals(2, list.size());
     }
 }
