@@ -3,6 +3,7 @@ package com.dddinjava.portal.service.impl;
 import com.dddinjava.portal.dao.AccountMapper;
 import com.dddinjava.portal.entity.Account;
 import com.dddinjava.portal.service.AccountService;
+import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
