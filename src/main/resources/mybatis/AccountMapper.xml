@@ -7,6 +7,6 @@
     </insert>
 
     <select id="list" resultType="Account">
-        select id, username, password, owner_full_name as ownerFullName from account
+        select id, username, password, owner_full_name from account
     </select>
 </mapper>
