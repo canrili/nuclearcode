@@ -23,7 +23,8 @@ import java.util.Objects;
 @RequiredArgsConstructor(onConstructor_ = @Autowired)
 public class AccountServiceImpl implements AccountService {
 
-    private final AccountMapper accountMapper;
+    @NonNull
+    private AccountMapper accountMapper;
 
     /**
      * 查询所有帐户
