@@ -5,6 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.redis.core.RedisTemplate;
 
 import java.util.List;
 
@@ -16,11 +17,16 @@ class AccountMapperTest {
 
     @Autowired
     private AccountMapper accountMapper;
+    @Autowired
+    private RedisTemplate redisTemplate;
 
     @Test
     void list() {
-        List<Account> list = accountMapper.list(3L);
-        log.info(list.toString());
-        assertEquals(1, list.size());
+        Account account= accountMapper.list(3L);
+        log.info(account.toString());
+        assertNotNull(account);
+
+        Account o = (Account) redisTemplate.opsForValue().get("portal::account::3");
+        log.info(o.toString());
     }
 }

@@ -4,8 +4,6 @@ import com.dddinjava.portal.entity.Account;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.cache.annotation.Cacheable;
 
-import java.util.List;
-
 /**
  * @author zhaox
  */
@@ -17,7 +15,7 @@ public interface AccountMapper {
      * @param id
      * @return
      */
-    @Cacheable(value = "users", key = "#id")
-    List<Account> list(Long id);
+    @Cacheable(value = "account", key = "#id")
+    Account list(Long id);
 
 }
