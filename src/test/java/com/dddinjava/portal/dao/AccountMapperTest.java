@@ -4,6 +4,7 @@ import com.dddinjava.portal.entity.Account;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.cache.CacheProperties;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.redis.core.RedisTemplate;
 
@@ -19,6 +20,8 @@ class AccountMapperTest {
     private AccountMapper accountMapper;
     @Autowired
     private RedisTemplate redisTemplate;
+    @Autowired
+    private CacheProperties cacheProperties;
 
     @Test
     void list() {
@@ -26,7 +29,7 @@ class AccountMapperTest {
         log.info(account.toString());
         assertNotNull(account);
 
-        Account o = (Account) redisTemplate.opsForValue().get("portal::account::3");
+        Account o = (Account) redisTemplate.opsForValue().get(cacheProperties.getRedis().getKeyPrefix() + "account::3");
         log.info(o.toString());
     }
 }
