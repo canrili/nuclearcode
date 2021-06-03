@@ -7,7 +7,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.jsontype.impl.LaissezFaireSubTypeValidator;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.cache.CacheProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -30,6 +29,10 @@ public class RedisConfig {
     private final RedisConnectionFactory redisConnectionFactory;
     private final CacheProperties cacheProperties;
 
+    /**
+     * redisTemplate 序列化为json
+     * @return
+     */
     @Bean
     public RedisTemplate<String, Object> redisTemplate() {
 
@@ -56,6 +59,10 @@ public class RedisConfig {
         return cacheProperties.getRedis();
     }
 
+    /**
+     * 配置RedisCacheConfiguration，序列化为json
+     * @return
+     */
     @Bean
     RedisCacheConfiguration redisCacheConfiguration() {
 
