@@ -12,3 +12,9 @@ MyBatis-Spring-Boot-Starter
 [http://mybatis.org/spring-boot-starter/mybatis-spring-boot-autoconfigure/#](http://mybatis.org/spring-boot-starter/mybatis-spring-boot-autoconfigure/# "http://mybatis.org/spring-boot-starter/mybatis-spring-boot-autoconfigure/#")
 
 [https://blog.csdn.net/u011482647/article/details/117249385](https://blog.csdn.net/u011482647/article/details/117249385 "https://blog.csdn.net/u011482647/article/details/117249385")
+
+Mybatis文件头
+
+`<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">`
