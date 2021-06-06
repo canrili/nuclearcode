@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.Date;
 
 /**
  * 验证码校验
@@ -46,6 +47,16 @@ public class VerificationCodeFilter extends OncePerRequestFilter {
             responseResult(response, session, "验证码错误");
             return;
         }
+
+
+        // 判断验证码是否超时
+        Date date = (Date)session.getAttribute(Constants.KAPTCHA_SESSION_DATE);
+        long codeTime = date.getTime();
+        if (Long.compare(codeTime, System.currentTimeMillis()) == 1) {
+            responseResult(response, session, "验证码过期");
+            return;
+        }
+
         filterChain.doFilter(request, response);
 
     }
