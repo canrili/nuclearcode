@@ -1,8 +1,9 @@
 package com.dddinjava.portal.service.impl;
 
-import com.dddinjava.portal.dao.UserDao;
 import com.dddinjava.portal.entity.User;
+import com.dddinjava.portal.mapper.UserMapper;
 import com.dddinjava.portal.service.UserDetailsService;
+import com.dddinjava.portal.wrapper.UserQuery;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +22,7 @@ import java.util.Objects;
 public class UserDetailsServiceImpl implements UserDetailsService {
 
     @NonNull
-    private UserDao userDao;
+    private UserMapper userMapper;
     /**
      * 根据用户名加载用户信息
      * @param s 用户名
@@ -31,8 +32,14 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
 
-        User user = userDao.findByUsername(s);
-
+        // 查询条件
+        // select.xxx()指定需要查询的字段 .end()结束
+        // where.yyy() 指定过滤条件 .end()结束
+        UserQuery userQuery = userMapper.query()
+                .select.id().username().password().enabled().end().
+                        where.username().eq("admin").end();
+        // 查询
+        User user = userMapper.findOne(userQuery);
         if (Objects.isNull(user)) {
             throw new UsernameNotFoundException("账户不存在");
         }

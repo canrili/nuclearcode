@@ -1,6 +1,8 @@
 package com.dddinjava.portal.entity;
 
 
+import cn.org.atool.fluent.mybatis.annotation.FluentMybatis;
+import cn.org.atool.fluent.mybatis.base.IEntity;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
@@ -17,7 +19,8 @@ import java.util.Collection;
  */
 @Getter
 @Setter
-public class User implements UserDetails {
+@FluentMybatis
+public class User implements UserDetails, IEntity {
 
   private static final long serialVersionUID = -3250375282537440296L;
 
@@ -26,7 +29,6 @@ public class User implements UserDetails {
   private String username;
   @Getter(AccessLevel.NONE)
   private String password;
-  @Getter(AccessLevel.NONE)
   private Boolean enabled;
 
   @Override
