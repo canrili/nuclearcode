@@ -2,8 +2,8 @@ package com.dddinjava.portal.service.impl;
 
 import com.dddinjava.portal.entity.User;
 import com.dddinjava.portal.mapper.UserMapper;
-import com.dddinjava.portal.service.UserDetailsService;
 import com.dddinjava.portal.wrapper.UserQuery;
+import java.util.Objects;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,23 +11,20 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import java.util.Objects;
-
 /**
  * 用户逻辑层实现
  * @author zhaox
  */
 @RequiredArgsConstructor(onConstructor_ = @Autowired)
 @Service
-public class UserDetailsServiceImpl implements UserDetailsService {
+public class UserDetailsService implements org.springframework.security.core.userdetails.UserDetailsService {
 
     @NonNull
     private UserMapper userMapper;
     /**
      * 根据用户名加载用户信息
      * @param s 用户名
-     * @return
-     * @throws UsernameNotFoundException
+     * @return UserDetails
      */
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {

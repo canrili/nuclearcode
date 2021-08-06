@@ -34,7 +34,7 @@
             <scope>compile</scope>
             <version>1.4.7</version>
         </dependency>
-        <!-- 引入fluent-mybatis-processor, scope设置为provider 编译需要，运行时不需要 -->
+        <!-- 引入fluent-mybatis-processor, scope设置为provided 编译需要，运行时不需要 -->
         <dependency>
             <groupId>com.github.atool</groupId>
             <artifactId>fluent-mybatis-processor</artifactId>
